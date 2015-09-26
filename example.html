@@ -1,22 +1,38 @@
 <html>
-  <head>example
+  <head>
+    <title>OOPs JS</title>
     <script src="jquery.js"></script>
     <script src="example.js"></script>
+    <script src="core.js"></script>
   </head>
+  
+  <style>
+    div{
+      border:1px solid red;
+      display:block; 
+      width: 900px; 
+      padding: 30px;    
+    }
+    div span{
+      display:block;    
+    }
+  </style>
+  
   <body>
-  <div style="border:1px solid red;"> Division which constains table for showing the data
-    <table>
-      <tr>
-        <td></td>
-      </tr>
-    </table>
-  </div>
-  <div style="border:1px solid;">
-    <span>Division for showing the edit functionality.</span>
-    <input class="inp_name"/>
-    <input class="inp_age"/>
-    <input class="inp_phone"/>
-    <button class="sub">Submit</button>
-  </div>
+    Example
+    <div id="datatable"> 
+      <span style="display:block;">Division which constains table for showing the data</span>
+      <table>
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div >
+      <span style="display:block;">Division for showing the edit functionality.</span>
+      <input class="inp_name" placeholder="enter name"/>
+      <input class="inp_age" placeholder="enter age"/>
+      <input class="inp_phone" placeholder="enter contact"/>
+      <button class="submit" style="display:block;">Submit</button>
+    </div>
   </body>
 </html>

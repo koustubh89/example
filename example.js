@@ -1,31 +1,38 @@
 $(document).ready(function(){
   console.log('inside the jquery ready function');
 
-  $('.sub').click(function(){
-    inp_name= $('.inp_name').val();
-    inp_age= $('.inp_age').val();
-    inp_phone= $('.inp_phone').val();
-    var newPerson = new person(inp_name,inp_age,inp_phone);
+  $('.submit').click(function(){
+
+    var newPerson = inputs('new');
+    // inp_id = dataSet.getcount() + 1;
     console.log('newPerson',newPerson);
-    makeAjax(newPerson);
+    dataSet.addPerson(newPerson);
+    paintTable();
   });
-  
-}); 
 
-var person = function(name,phone,age){
-  this.name=name;
-  this.age=age;
-  this.phone=phone;
-  console.log('values collected on the calling object');
-};
+  $('.delete').click(function(){
+    console.log(this.attr('id'));
+    /*    
+    console.log(this.attr('id'));
+    var which = this.attr('id');
+    */    
+    dataSet.deletePerson()
+    paintTable();
+  });
 
-var makeAjax = function(data) {
-  $.ajax({
-    url: "your/own/api/call",
-    data: data,
-    }).done(function() {
-      console.log('ajax call made.. implement what is to be done on success of this call');
-    }).error(function(){
-      console.log('api doesnt exist');
-    });
-};
+  $('.edit').click(function(){
+    console.log(this.attr('id'));
+    // hide edit  delete button
+    // show update and cancel button 
+    // on click of update call update function
+  });
+  $('.update').click(function(id){
+    // get the values from dom
+    var updatedPerson = inputs('edited');
+    dataSet.update(updatedPerson)
+    paintTable();
+  });
+});
+
+
+//library code follows
