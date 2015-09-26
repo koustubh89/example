@@ -41,56 +41,54 @@ var paintTable = function(){
 }
 
 var dataSet = {
-  // return{
-    "allPersons" : [],
-    iterate : function(){
-      var idx = -1;
-      for(var i in  this.allPersons){
-          if(person.id == this.allPersons[i].id){
-            idx = i;
-            break;
-          }
+  "allPersons" : [],
+  iterate : function(){
+    var idx = -1;
+    for(var i in  this.allPersons){
+        if(person.id == this.allPersons[i].id){
+          idx = i;
+          break;
         }
-      return idx;
-    },
-    getAll : function(){
-      return this.allPersons;
-    },
-    getcount :  function(){
-      return this.allPersons.length;
-    },
-    addPerson : function(person){
-      var index = this.iterate();
-      if(index == -1){
-        this.allPersons.push(person);
-        return true;
-      }else{
-        var message = "person with name"+ person.name+"already present" ;
-        alert (message);
-        return false;
       }
-    }, 
-    deletePerson :  function(person){
-      var index = this.iterate();
-      if(index > -1){
-        this.allPersons.splice(index, 1); // removes the element from the array 
-        return true;
-      }else{
-        alert("requested resource not present");
-        return false;
-      };
-    },
-    updatePerson : function(person){
-      var index = this.iterate();
-      if (index> -1) {
-        this.allPersons[index] = person;
-        return true;
-      }else{
-        alert("requested resource not present");
-        return false;
-      };
+    return idx;
+  },
+  getAll : function(){
+    return this.allPersons;
+  },
+  getcount :  function(){
+    return this.allPersons.length;
+  },
+  addPerson : function(person){
+    var index = this.iterate();
+    if(index == -1){
+      this.allPersons.push(person);
+      return true;
+    }else{
+      var message = "person with name"+ person.name+"already present" ;
+      alert (message);
+      return false;
     }
-  // }
+  }, 
+  deletePerson :  function(person){
+    var index = this.iterate();
+    if(index > -1){
+      this.allPersons.splice(index, 1); // removes the element from the array 
+      return true;
+    }else{
+      alert("requested resource not present");
+      return false;
+    };
+  },
+  updatePerson : function(person){
+    var index = this.iterate();
+    if (index> -1) {
+      this.allPersons[index] = person;
+      return true;
+    }else{
+      alert("requested resource not present");
+      return false;
+    };
+  }
 };
 
 var person = function(name,phone,age,generatedId){
